@@ -26,14 +26,16 @@ const Card = ({
 
   useEffect(() => {
     const storageData = JSON.parse(sessionStorage.getItem('favorite'));
-    const checkData = storageData.filter((el) => {
-      return el.id === id;
-    });
-    if (checkData.length > 0) {
-      setDisabled(true);
-      setButtonText('Added');
+    if (storageData) {
+      const checkData = storageData.filter((el) => {
+        return el.id === id;
+      });
+      if (checkData.length > 0) {
+        setDisabled(true);
+        setButtonText('Added');
+      }
     }
-  }, []);
+  });
 
   return (
     <>
@@ -43,7 +45,7 @@ const Card = ({
             <img
               style={{ height: '200px', width: '350px' }}
               src={image}
-              alt='Sample photo'
+              alt='Sample'
             ></img>
             <div className={styles.text}>
               <h3>{area}</h3>
@@ -69,7 +71,7 @@ const Card = ({
             <img
               style={{ height: '200px', width: '350px' }}
               src={image}
-              alt='Sample photo'
+              alt='Sample'
             ></img>
             <div className={styles.text}>
               <h3>{area}</h3>
