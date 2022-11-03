@@ -35,7 +35,7 @@ const Card = ({
         setButtonText('Added');
       }
     }
-  });
+  }, [id]);
 
   return (
     <>
